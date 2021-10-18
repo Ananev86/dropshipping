@@ -1,0 +1,33 @@
+<modification>
+    <name>opendrop</name>
+    <version>For OpenCart 3</version>
+    <link>mailto: yii86@ukr.net</link>
+    <author>vadim</author>
+    <code>opendrop</code>
+    <file path="admin/controller/common/column_left.php">
+        <operation>
+            <search trim="true"><![CDATA[// Extension]]></search>
+            <add position="before"><![CDATA[
+			//opendrop
+            $opendrop=[];
+            if ($this->user->hasPermission('access', 'extension/module/opendrop')&&$this->config->get('module_opendrop_status')) {
+                $opendrop[] = array(
+                    'name'	   => 'Suppliers',
+                    'href'     => $this->url->link('extension/module/opendrop/suppliers', 'user_token=' . $this->session->data['user_token'], true),
+                    'children' => array()
+                );
+            }
+
+			if($opendrop) {
+                $data['menus'][] = array(
+                    'id' => 'menu-catalog',
+                    'icon' => 'fa-tags',
+                    'name' => 'Opendrop',
+                    'href' => '',
+                    'children' => $opendrop
+                );
+            }
+			 ]]></add>
+        </operation>
+    </file>
+</modification>

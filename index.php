@@ -6,6 +6,12 @@ define('VERSION', '3.0.3.7');
 if (is_file('config.php')) {
 	require_once('config.php');
 }
+function debug($arr)
+{
+    echo "<pre>";
+    print_r($arr);
+    echo "</pre>";
+}
 
 // Install
 if (!defined('DIR_APPLICATION')) {

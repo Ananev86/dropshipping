@@ -1,7 +1,10 @@
 <?php
 // Version
 define('VERSION', '3.0.3.7');
-
+function debug($arr)
+     {
+        print_r($arr);
+     }
 // Configuration
 if (is_file('config.php')) {
 	require_once('config.php');

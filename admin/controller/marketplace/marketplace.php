@@ -1,6 +1,7 @@
 <?php
 class ControllerMarketplaceMarketplace extends Controller {
 	public function index() {
+
 		$this->load->language('marketplace/marketplace');
 
 		$this->document->setTitle($this->language->get('heading_title'));
